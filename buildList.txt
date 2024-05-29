@@ -1,0 +1,30 @@
+//Stage Select Overlay
+japan , stage_se_ovl, 0x80148cd4 , 0x0, src/castleStagesHook.s
+japan , stage_se_ovl, 0x80148e28 , 0x0, src/stageSelectIntro.s
+
+//Title Screen Overlay
+japan , demo01_ovl , 0x80149608 , 0x0 , src/titleTable.s
+
+japan , exe , 0x800b9088 , 0x0 , src/titleTextPointers.c
+
+japan , exe, 0x8001e64c , 0x0, src/quickResetHook.s
+japan , exe, 0x8008c4c4 , 0x0, src/quickReset.c src/castleStages.c src/title.c src/upgrades.c
+
+japan , exe, 0x8001bdac , 0x0, src/movieSkip.s
+japan , exe, 0x800194e8 , 0x0, src/movieSkip2.s
+
+japan , exe, 0x8001e850 , 0x0, src/gotoStageSelect.s
+
+japan , exe, 0x8001e988 , 0x0, src/startLevel.c
+
+japan , exe, 0x8001fbc0 , 0x0, src/clearLevel.c
+
+japan , exe, 0x80041cf0 , 0x0, src/exit.c
+
+japan, exe, 0x8001f374, 0x0, src/stateHook.s
+japan, exe, 0x800a4c94, 0x0, src/stateTable.c
+
+japan, exe, 0x8002055c, 0x0, src/respawnHook.s
+
+//leave at end for psyq & stdlib
+japan , exe, 0x80016ecc , 0x0, src/state.c src/practice.c
