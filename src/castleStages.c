@@ -11,7 +11,15 @@ void CastleStageCheck()
         stageId = 0;
         StageSelected();
         return;
+    }else if (*((char *)0x800dabc7) == 7) //Frame Perfect
+    {
+        stageId = 0xA;
+        StageSelected();
+    }else{
+        stageId = ((char*)0x8014a228)[*(char*)0x800dabc7 * 10];
     }
+    *(char*)0x800dac24 = 1; //IDK
+    
     if ((buttonsHeld & PAD_SELECT))
     {
         switch (stageId)
@@ -35,8 +43,6 @@ void CastleStageCheck()
     if (practice.route == 0 && (buttonsHeld & PAD_R2) && stageId == 5)
     {
         practice.revist = true;
-    }else{
-        practice.revist = false;
     }
     
     StageSelected();

@@ -1,7 +1,6 @@
 //Stage Select Overlay
-japan , stage_se_ovl, 0x80148cd4 , 0x0, src/castleStagesHook.s
+japan , stage_se_ovl, 0x80148e30 , 0x0, src/castleStagesHook.s
 japan , stage_se_ovl, 0x80148e28 , 0x0, src/stageSelectIntro.s
-japan , stage_se_ovl, 0x80148cc4 , 0x0, src/earlyCastle.s
 
 //Title Screen Overlay
 japan , demo01_ovl , 0x80149608 , 0x0 , src/titleTable.s
