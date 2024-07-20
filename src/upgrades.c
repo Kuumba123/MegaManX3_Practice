@@ -1,9 +1,9 @@
 #include <common.h>
 #include "practice.h"
 
-extern u_char weaponAmmo[9 * 2];
+extern uint8_t weaponAmmo[9 * 2];
 
-static u_char aquiredWeapons[][8] = {
+static uint8_t aquiredWeapons[][8] = {
     /*Acid | P.Bomb | T.Thunder | S.Blade | Ray.S | B.Hole | Frost.S | Tornado.F*/
 
     //Intro

@@ -14,7 +14,7 @@ void QuickResetCheck(Thread * thread)
         {
             /* return to Stat of Game */
             thread->destP = 0x8001ab24;
-            *((u_char*)0x800d7ff5) = 0;
+            *((char*)0x800d7ff5) = 0;
             ThreadSleep(3);
             return;
         }

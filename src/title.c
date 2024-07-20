@@ -9,7 +9,7 @@
     #3 - Column
     #4 - Row */
 
-u_char titleText[] = {
+uint8_t titleText[] = {
     20,     //Length
     0x20,
     2,
@@ -47,7 +47,7 @@ u_char titleText[] = {
     0
 };
 
-u_char titleText2[] = {
+uint8_t titleText2[] = {
     15,    //Length
     0x20,
     2,
@@ -71,7 +71,7 @@ u_char titleText2[] = {
     0
 };
 
-u_char titleText3[] = {
+uint8_t titleText3[] = {
     15,    //Length
     0x20,
     2,

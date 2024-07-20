@@ -1,13 +1,13 @@
 #ifndef PRACTICE_H
 #define PRACTICE_H
-#include <sys/types.h>
+#include <stdint.h>
 #include <stdbool.h>
 
 typedef struct{
     bool stateMade;
     bool keepRng;
-    u_char stateStageId;
-    u_char route;
+    uint8_t stateStageId;
+    uint8_t route;
     bool revist;
 }Practice;
 

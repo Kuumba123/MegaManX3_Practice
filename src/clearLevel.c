@@ -1,6 +1,6 @@
 #include <common.h>
 
-extern u_char weaponAmmo[9 * 2];
+extern uint8_t weaponAmmo[9 * 2];
 
 void ClearedLevel(Thread * thread)
 {

@@ -1,6 +1,6 @@
-#include <sys/types.h>
+#include <stdint.h>
 
-static ushort Exit()
+static uint16_t Exit()
 {
     return 1;
 }
