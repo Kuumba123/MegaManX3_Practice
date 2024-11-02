@@ -45,6 +45,13 @@ static void SetWeapons(int set)
 #define hearts *(char*)0x800d8117
 #define armorParts *(char*)0x800d8114
 #define bossFlags *(char*)0x800d811b
+#define lives *(char*)0x800d80f7
+#define zeroUnavailable *(char*)0x800d8124 // Whether Zero is available in the start menu
+
+// upgrades
+#define upgrade_vile_dead 0x30
+#define upgrade_zero_dead 0x40
+#define upgrade_saber 0x80
 
 void SetupUpgrades()
 {
@@ -56,31 +63,25 @@ void SetupUpgrades()
     rideArmors = 0;
     armorParts = 0;
     bossFlags = 0;
-    *(char*)0x800d80f7 = 2; //lives
+    lives = 2;
+    zeroUnavailable = 0;
     if (practice.route == 1 || stageId == 0) // LOW%
     {
-        if (stageId == 0xB)
-        {
-            stageId = 0xB;
-        }
         return;
     }
     else if(practice.route == 0) //ANY% ALL STAGES
     {
-        if (stageId == 8)
+        if (stageId == 8 || stageId == 5 && !practice.revist)
         {
-            *(char*)0x800d80f7 = 0; //lives
-        }else if (stageId == 5 && !practice.revist)
-        {
-            *(char*)0x800d80f7 = 0; //lives
+            lives = 0;
         }
-           
         switch (stageId)
         {
         case 5: //Volt CatFish
             if (practice.revist)
             {
-                upgrades = 0x80 | 0x30;
+                upgrades = upgrade_saber | upgrade_vile_dead | upgrade_zero_dead;
+                zeroUnavailable = 1;
                 bossFlags = 0x30;
             }
             armorParts = 8;
@@ -89,13 +90,14 @@ void SetupUpgrades()
         case 0xB:
             SetWeapons(5);
             armorParts = 8;
-            upgrades = 0x30; //Vile defeted in Volt Catfish level
+            upgrades = upgrade_vile_dead; //Vile defeated in Volt Catfish level
             return;
         case 0xC:
         case 0xD:
             SetWeapons(-1);
             armorParts = 8;
-            upgrades = 0x80 | 0x30;
+            upgrades = upgrade_saber | upgrade_vile_dead | upgrade_zero_dead;
+            zeroUnavailable = 1;
             return;
         
         default:
@@ -105,10 +107,10 @@ void SetupUpgrades()
             }
             if (stageId != 2 && stageId != 8)
             {
-                upgrades = 0x80 | 0x30;
+                upgrades = upgrade_saber | upgrade_vile_dead | upgrade_zero_dead;
+                zeroUnavailable = 1;
                 bossFlags = 0x30;
             }
-            
             break;
         }
         if (stageId < 0xA)
