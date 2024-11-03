@@ -121,6 +121,7 @@ static struct State
     uint8_t zero;
     uint8_t zero2;
     uint8_t ammoAct;
+    uint8_t cutscene;
 };
 
 extern uint8_t weaponAmmo[9 * 2];
@@ -273,6 +274,7 @@ void SaveState()
     state->zero = *((uint8_t*)0x800d80cf);
     state->zero2 = *((uint8_t*)0x800d8124);
     state->ammoAct = *((uint8_t*)0x800d8092);
+    state->cutscene = *((uint8_t*)0x800d80b7);
 
     //Weapon Ammo
     for (size_t i = 0; i < 18; i++)
@@ -406,6 +408,7 @@ void LoadState()
     *(uint8_t *)0x800d80cf = state->zero;
     *(uint8_t *)0x800d8124 = state->zero2;
     *(uint8_t *)0x800d8092 = state->ammoAct;
+    *(uint8_t *)0x800d80b7 = state->cutscene;
 
     //Weapon Ammo
     for (size_t i = 0; i < 18; i++)
