@@ -5,6 +5,19 @@ japan , stage_se_ovl, 0x80148e28 , 0x0, src/stageSelectIntro.s
 //Title Screen Overlay
 japan , demo01_ovl , 0x80149608 , 0x0 , src/titleTable.s
 
+//Stage Overlays
+japan , doppler_3_ovl, 0x8014ad44 , 0x0, src/refights/openExitDoor.s
+
+//Refight Overlays
+japan , hornet_refight_ovl, 0x80146340 , 0x0, src/refights/keepHornetEnabled.s
+japan , buffalo_refight_ovl, 0x80146434 , 0x0, src/refights/keepBuffaloEnabled.s
+japan , seahorse_refight_ovl, 0x801462ec , 0x0, src/refights/keepSeahorseEnabled.s
+japan , tiger_refight_ovl, 0x80146900 , 0x0, src/refights/keepTigerEnabled.s
+japan , catfish_refight_ovl, 0x80146a40 , 0x0, src/refights/keepCatfishEnabled.s
+japan , beetle_refight_ovl, 0x80146368 , 0x0, src/refights/keepBeetleEnabled.s
+japan , rhino_refight_ovl, 0x8014645c , 0x0, src/refights/keepRhinoEnabled.s
+japan , crawfish_refight_ovl, 0x8014656c , 0x0, src/refights/keepCrawfishEnabled.s
+
 japan , exe , 0x800b9088 , 0x0 , src/titleTextPointers.c
 
 japan , exe, 0x8001e64c , 0x0, src/quickResetHook.s
