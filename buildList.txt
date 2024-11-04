@@ -20,8 +20,11 @@ japan , crawfish_refight_ovl, 0x8014656c , 0x0, src/refights/keepCrawfishEnabled
 
 japan , exe , 0x800b9088 , 0x0 , src/titleTextPointers.c
 
+japan , exe, 0x80073f70 , 0x0, src/bitCheckHook.s
+japan , exe, 0x80075e24 , 0x0, src/byteCheckHook.s
+
 japan , exe, 0x8001e64c , 0x0, src/quickResetHook.s
-japan , exe, 0x8008c4c4 , 0x0, src/quickReset.c src/castleStages.c src/title.c src/upgrades.c
+japan , exe, 0x8008c4c4 , 0x0, src/quickReset.c src/castleStages.c src/title.c src/upgrades.c src/bitCheck.c src/byteCheck.c
 
 japan , exe, 0x8001bdac , 0x0, src/movieSkip.s
 japan , exe, 0x800194e8 , 0x0, src/movieSkip2.s
