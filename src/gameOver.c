@@ -5,7 +5,7 @@ extern uint8_t weaponAmmo[9 * 2];
 #define maverick_stages_cleared 0x800d8116
 #define doppler_stages_cleared 0x800d80f2
 
-void ClearedLevel(Thread * thread)
+void GameOver(Thread * thread)
 {
     thread->destP = 0x8001e64c;
     *((char*)maverick_stages_cleared) = 0;

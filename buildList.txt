@@ -31,6 +31,7 @@ japan , exe, 0x8001e850 , 0x0, src/gotoStageSelect.s
 japan , exe, 0x8001e988 , 0x0, src/startLevel.c
 
 japan , exe, 0x8001fbc0 , 0x0, src/clearLevel.c
+japan , exe, 0x80020b88 , 0x0, src/gameOver.c
 
 japan , exe, 0x80041cf0 , 0x0, src/exit.c
 
