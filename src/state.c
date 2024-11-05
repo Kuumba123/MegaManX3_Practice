@@ -2,7 +2,7 @@
 #include <gpu.h>
 #include "practice.h"
 
-#define VariableSetsCount 20
+#define VariableSetsCount 21
 #define VRAM_DUMP_X 258
 #define StateCoolDown 10
 
@@ -17,6 +17,7 @@ static void *readAddresses[] = {
     0x800d96b8, // Enemies
     0x800da8c8, // Effects
     0x800d8c18, // IDK (Object related)
+    0x800f3550, // Misc. boss state (Mosquitus, Volt Kurageil)
     0x80134B5C, // Tile Data for Layers 1-2
     0x80108c5c, // Tile Data for Layer 3
     0x800d81c8, // Background & Sprite Clut
@@ -40,6 +41,7 @@ static int16_t addressesSize[] = {
     0x690,  // Enemies
     0x200,  // Effects
     0x90,   // IDK (Object related)
+    0x30,   // Misc. boss state (Mosquitus, Volt Kurageil)
     0x2000, // Tile Data for Layers 1-2
     0x3000, // Tile Data for Layer 3
     0x300,  // Background & Sprite Clut
