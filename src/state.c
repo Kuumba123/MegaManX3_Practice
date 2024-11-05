@@ -122,6 +122,7 @@ static struct State
     uint8_t ready;
     uint8_t zero;
     uint8_t zero2;
+    uint8_t zero3;
     uint8_t ammoAct;
     uint8_t stageState1;
     uint8_t stageState2;
@@ -279,6 +280,7 @@ void SaveState()
     state->ready = *((uint8_t *)0x800da898);
     state->zero = *((uint8_t*)0x800d80cf);
     state->zero2 = *((uint8_t*)0x800d8124);
+    state->zero3 = *((uint8_t*)0x800d8125);
     state->ammoAct = *((uint8_t*)0x800d8092);
     state->stageState1 = *((uint8_t*)0x800d80c6);
     state->stageState2 = *((uint8_t*)0x800d80c7);
@@ -417,6 +419,7 @@ void LoadState()
     *(uint8_t *)0x800da898 = state->ready;
     *(uint8_t *)0x800d80cf = state->zero;
     *(uint8_t *)0x800d8124 = state->zero2;
+    *(uint8_t *)0x800d8125 = state->zero3;
     *(uint8_t *)0x800d8092 = state->ammoAct;
     *(uint8_t *)0x800d80c6 = state->stageState1;
     *(uint8_t *)0x800d80c7 = state->stageState2;
