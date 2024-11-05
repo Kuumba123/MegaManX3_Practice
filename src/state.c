@@ -121,7 +121,10 @@ static struct State
     uint8_t zero;
     uint8_t zero2;
     uint8_t ammoAct;
-    uint8_t stageState; // Various usage, for example contains the flags for the falling ceilings in Doppler 1
+    uint8_t stageState1;
+    uint8_t stageState2;
+    uint8_t stageState3;
+    uint8_t stageState4;
     uint8_t cutscene;
 };
 
@@ -275,7 +278,10 @@ void SaveState()
     state->zero = *((uint8_t*)0x800d80cf);
     state->zero2 = *((uint8_t*)0x800d8124);
     state->ammoAct = *((uint8_t*)0x800d8092);
-    state->stageState = *((uint8_t*)0x800d80c6);
+    state->stageState1 = *((uint8_t*)0x800d80c6);
+    state->stageState2 = *((uint8_t*)0x800d80c7);
+    state->stageState3 = *((uint8_t*)0x800d80c8);
+    state->stageState4 = *((uint8_t*)0x800d80c9);
     state->cutscene = *((uint8_t*)0x800d80b7);
 
     //Weapon Ammo
@@ -410,7 +416,10 @@ void LoadState()
     *(uint8_t *)0x800d80cf = state->zero;
     *(uint8_t *)0x800d8124 = state->zero2;
     *(uint8_t *)0x800d8092 = state->ammoAct;
-    *(uint8_t *)0x800d80c6 = state->stageState;
+    *(uint8_t *)0x800d80c6 = state->stageState1;
+    *(uint8_t *)0x800d80c7 = state->stageState2;
+    *(uint8_t *)0x800d80c8 = state->stageState3;
+    *(uint8_t *)0x800d80c9 = state->stageState4;
     *(uint8_t *)0x800d80b7 = state->cutscene;
 
     //Weapon Ammo
