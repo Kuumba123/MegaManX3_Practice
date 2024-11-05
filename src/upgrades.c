@@ -147,7 +147,7 @@ void SetupUpgrades()
 
 void ResetSaveState()
 {
-    if (practice.stateStageId != stageId)
+    if (practice.stateStageId != stageId || stageId == stage_doppler_3)
     {
         practice.stateMade = 0;
     }
