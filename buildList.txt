@@ -5,10 +5,26 @@ japan , stage_se_ovl, 0x80148e28 , 0x0, src/stageSelectIntro.s
 //Title Screen Overlay
 japan , demo01_ovl , 0x80149608 , 0x0 , src/titleTable.s
 
+//Stage Overlays
+japan , doppler_3_ovl, 0x8014ad44 , 0x0, src/refights/openExitDoor.s
+
+//Refight Overlays
+japan , hornet_refight_ovl, 0x80146340 , 0x0, src/refights/keepHornetEnabled.s
+japan , buffalo_refight_ovl, 0x80146434 , 0x0, src/refights/keepBuffaloEnabled.s
+japan , seahorse_refight_ovl, 0x801462ec , 0x0, src/refights/keepSeahorseEnabled.s
+japan , tiger_refight_ovl, 0x80146900 , 0x0, src/refights/keepTigerEnabled.s
+japan , catfish_refight_ovl, 0x80146a40 , 0x0, src/refights/keepCatfishEnabled.s
+japan , beetle_refight_ovl, 0x80146368 , 0x0, src/refights/keepBeetleEnabled.s
+japan , rhino_refight_ovl, 0x8014645c , 0x0, src/refights/keepRhinoEnabled.s
+japan , crawfish_refight_ovl, 0x8014656c , 0x0, src/refights/keepCrawfishEnabled.s
+
 japan , exe , 0x800b9088 , 0x0 , src/titleTextPointers.c
 
+japan , exe, 0x80073f70 , 0x0, src/bitCheckHook.s
+japan , exe, 0x80075e24 , 0x0, src/byteCheckHook.s
+
 japan , exe, 0x8001e64c , 0x0, src/quickResetHook.s
-japan , exe, 0x8008c4c4 , 0x0, src/quickReset.c src/castleStages.c src/title.c src/upgrades.c
+japan , exe, 0x8008c4c4 , 0x0, src/quickReset.c src/castleStages.c src/title.c src/upgrades.c src/bitCheck.c src/byteCheck.c
 
 japan , exe, 0x8001bdac , 0x0, src/movieSkip.s
 japan , exe, 0x800194e8 , 0x0, src/movieSkip2.s
@@ -18,6 +34,7 @@ japan , exe, 0x8001e850 , 0x0, src/gotoStageSelect.s
 japan , exe, 0x8001e988 , 0x0, src/startLevel.c
 
 japan , exe, 0x8001fbc0 , 0x0, src/clearLevel.c
+japan , exe, 0x80020b88 , 0x0, src/gameOver.c
 
 japan , exe, 0x80041cf0 , 0x0, src/exit.c
 

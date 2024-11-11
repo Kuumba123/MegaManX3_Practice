@@ -2,7 +2,7 @@
 #include <gpu.h>
 #include "practice.h"
 
-#define VariableSetsCount 20
+#define VariableSetsCount 21
 #define VRAM_DUMP_X 258
 #define StateCoolDown 10
 
@@ -17,6 +17,7 @@ static void *readAddresses[] = {
     0x800d96b8, // Enemies
     0x800da8c8, // Effects
     0x800d8c18, // IDK (Object related)
+    0x800f3550, // Misc. boss state (Mosquitus, Volt Kurageil)
     0x80134B5C, // Tile Data for Layers 1-2
     0x80108c5c, // Tile Data for Layer 3
     0x800d81c8, // Background & Sprite Clut
@@ -40,6 +41,7 @@ static int16_t addressesSize[] = {
     0x690,  // Enemies
     0x200,  // Effects
     0x90,   // IDK (Object related)
+    0x30,   // Misc. boss state (Mosquitus, Volt Kurageil)
     0x2000, // Tile Data for Layers 1-2
     0x3000, // Tile Data for Layer 3
     0x300,  // Background & Sprite Clut
@@ -120,7 +122,13 @@ static struct State
     uint8_t ready;
     uint8_t zero;
     uint8_t zero2;
+    uint8_t zero3;
     uint8_t ammoAct;
+    uint8_t stageState1;
+    uint8_t stageState2;
+    uint8_t stageState3;
+    uint8_t stageState4;
+    uint8_t cutscene;
 };
 
 extern uint8_t weaponAmmo[9 * 2];
@@ -272,7 +280,13 @@ void SaveState()
     state->ready = *((uint8_t *)0x800da898);
     state->zero = *((uint8_t*)0x800d80cf);
     state->zero2 = *((uint8_t*)0x800d8124);
+    state->zero3 = *((uint8_t*)0x800d8125);
     state->ammoAct = *((uint8_t*)0x800d8092);
+    state->stageState1 = *((uint8_t*)0x800d80c6);
+    state->stageState2 = *((uint8_t*)0x800d80c7);
+    state->stageState3 = *((uint8_t*)0x800d80c8);
+    state->stageState4 = *((uint8_t*)0x800d80c9);
+    state->cutscene = *((uint8_t*)0x800d80b7);
 
     //Weapon Ammo
     for (size_t i = 0; i < 18; i++)
@@ -405,7 +419,13 @@ void LoadState()
     *(uint8_t *)0x800da898 = state->ready;
     *(uint8_t *)0x800d80cf = state->zero;
     *(uint8_t *)0x800d8124 = state->zero2;
+    *(uint8_t *)0x800d8125 = state->zero3;
     *(uint8_t *)0x800d8092 = state->ammoAct;
+    *(uint8_t *)0x800d80c6 = state->stageState1;
+    *(uint8_t *)0x800d80c7 = state->stageState2;
+    *(uint8_t *)0x800d80c8 = state->stageState3;
+    *(uint8_t *)0x800d80c9 = state->stageState4;
+    *(uint8_t *)0x800d80b7 = state->cutscene;
 
     //Weapon Ammo
     for (size_t i = 0; i < 18; i++)
