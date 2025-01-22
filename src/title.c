@@ -24,73 +24,191 @@ uint8_t titleText[] = {
     16,
     'B','Y',' ','P','O','G','C','H','A','M','P','G','U','Y',
 
-    15,    //Length
+    10,    //Length
     0x3C,
     2,
     0xA,
+    0x12,
+    'A','L','L',' ','S','T','A','G','E','S',
+
+    4,      //Length
+    0x20,
+    2,
+    0xA,
     0x14,
-    'A','N','Y','%',' ','A','L','L',' ','S','T','A','G','E','S',
+    'A','N','Y','%',
+
+    4,      //Length
+    0x20,
+    2,
+    0xA,
+    0x16,
+    '1','0','0','%',
 
     4,
     0x20,
     2,
     0xA,
-    0x16,
+    0x18,
     'L','O','W','%',
 
     0xB,
     0x20,
     2,
     0xA,
-    0x18,
+    0x1A,
     'O','P','T','I','O','N',0x20,'M','O','D','E',
     0
 };
 
 uint8_t titleText2[] = {
-    15,    //Length
+    10,    //Length
     0x20,
     2,
     0xA,
-    0x14,
-    'A','N','Y','%',' ','A','L','L',' ','S','T','A','G','E','S',
+    0x12,
+    'A','L','L',' ','S','T','A','G','E','S',
 
-    4,
+    4,      //Length
     0x3C,
     2,
     0xA,
+    0x14,
+    'A','N','Y','%',
+
+    4,      //Length
+    0x20,
+    2,
+    0xA,
     0x16,
+    '1','0','0','%',
+
+    4,
+    0x20,
+    2,
+    0xA,
+    0x18,
     'L','O','W','%',
 
     0xB,
     0x20,
     2,
     0xA,
-    0x18,
+    0x1A,
     'O','P','T','I','O','N',0x20,'M','O','D','E',
     0
 };
 
 uint8_t titleText3[] = {
-    15,    //Length
+    10,    //Length
+    0x20,
+    2,
+    0xA,
+    0x12,
+    'A','L','L',' ','S','T','A','G','E','S',
+
+    4,      //Length
     0x20,
     2,
     0xA,
     0x14,
-    'A','N','Y','%',' ','A','L','L',' ','S','T','A','G','E','S',
+    'A','N','Y','%',
+
+    4,      //Length
+    0x3C,
+    2,
+    0xA,
+    0x16,
+    '1','0','0','%',
 
     4,
     0x20,
     2,
     0xA,
+    0x18,
+    'L','O','W','%',
+
+    0xB,
+    0x20,
+    2,
+    0xA,
+    0x1A,
+    'O','P','T','I','O','N',0x20,'M','O','D','E',
+    0
+};
+
+uint8_t titleText4[] = {
+    10,    //Length
+    0x20,
+    2,
+    0xA,
+    0x12,
+    'A','L','L',' ','S','T','A','G','E','S',
+
+    4,      //Length
+    0x20,
+    2,
+    0xA,
+    0x14,
+    'A','N','Y','%',
+
+    4,      //Length
+    0x20,
+    2,
+    0xA,
     0x16,
+    '1','0','0','%',
+
+    4,
+    0x3C,
+    2,
+    0xA,
+    0x18,
+    'L','O','W','%',
+
+    0xB,
+    0x20,
+    2,
+    0xA,
+    0x1A,
+    'O','P','T','I','O','N',0x20,'M','O','D','E',
+    0
+};
+
+uint8_t titleText5[] = {
+    10,    //Length
+    0x20,
+    2,
+    0xA,
+    0x12,
+    'A','L','L',' ','S','T','A','G','E','S',
+
+    4,      //Length
+    0x20,
+    2,
+    0xA,
+    0x14,
+    'A','N','Y','%',
+
+    4,      //Length
+    0x20,
+    2,
+    0xA,
+    0x16,
+    '1','0','0','%',
+
+    4,
+    0x20,
+    2,
+    0xA,
+    0x18,
     'L','O','W','%',
 
     0xB,
     0x3C,
     2,
     0xA,
-    0x18,
+    0x1A,
     'O','P','T','I','O','N',0x20,'M','O','D','E',
     0
 };
@@ -99,6 +217,8 @@ void GameStart();
 void TitleRouteSelect(Thread * t);
 
 void (*titleSelectTable[])() = {
+    TitleRouteSelect,
+    TitleRouteSelect,
     TitleRouteSelect,
     TitleRouteSelect,
     0x801496b0 //option mode

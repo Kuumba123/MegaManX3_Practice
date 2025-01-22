@@ -4,6 +4,10 @@ japan , stage_se_ovl, 0x80148e28 , 0x0, src/stageSelectIntro.s
 
 //Title Screen Overlay
 japan , demo01_ovl , 0x80149608 , 0x0 , src/titleTable.s
+japan , demo01_ovl , 0x801492f4 , 0x0 , src/titleCursorMax.s
+japan , demo01_ovl , 0x8014930c , 0x0 , src/titleCursorMax2.s
+japan , demo01_ovl , 0x80149354 , 0x0 , src/megaCursorY.s
+japan , demo01_ovl , 0x80149104 , 0x0 , src/megaCursorStartY.s
 
 //Stage Overlays
 japan , doppler_3_ovl, 0x8014ad44 , 0x0, src/refights/openExitDoor.s
