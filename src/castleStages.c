@@ -40,7 +40,7 @@ void CastleStageCheck()
             break;
         }
     }
-    if (practice.route == 0 && (buttonsHeld & PAD_R2) && stageId == 5)
+    if (practice.route == ALL_STAGES && (buttonsHeld & PAD_R2) && stageId == 5)
     {
         practice.revist = true;
     }

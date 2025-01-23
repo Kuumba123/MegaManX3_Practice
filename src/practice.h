@@ -13,4 +13,12 @@ typedef struct{
 
 extern Practice practice;
 
+enum ROUTES
+{
+    ALL_STAGES,
+    ANY_PERCENT,
+    HUNDO,
+    LOW_PERCENT
+};
+
 #endif
