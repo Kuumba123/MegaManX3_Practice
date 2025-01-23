@@ -153,6 +153,11 @@ void SetupUpgrades()
             lives = 0;
             weaponAmmo[6] = 0x5C;
             break;
+        case stage_catfish:
+            lives = 0;
+            weaponAmmo[3] = 0x5C;
+            weaponAmmo[6] = 0x5C;
+            break;
         case stage_doppler_1:
         case stage_doppler_2:
             upgrades = upgrade_vile_dead; // Vile defeated in Volt Catfish level
