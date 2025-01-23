@@ -40,7 +40,7 @@ void CastleStageCheck()
             break;
         }
     }
-    if (practice.route == ALL_STAGES && (buttonsHeld & PAD_R2) && stageId == 5)
+    if ((practice.route == ALL_STAGES && (buttonsHeld & PAD_R2) != 0 && stageId == 5) || ((buttonsHeld & PAD_R2) && (stageId == 7 || stageId == 3) && practice.route == HUNDO))
     {
         practice.revist = true;
     }

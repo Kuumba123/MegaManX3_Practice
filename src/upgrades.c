@@ -23,7 +23,26 @@ static uint8_t aquiredWeapons[][8] = {
     // Tunnel Rhino
     {0, 0, 0x5C, 0x5C, 0x5C, 0, 0x5C, 0},
     // Neon Tiger
-    {0, 0, 0, 0, 0, 0, 0x5C, 0}};
+    {0, 0, 0, 0, 0, 0, 0x5C, 0},
+
+    /*100%*/
+    // Blast Hornet
+    {0x5C, 0, 0, 0, 0x5C, 0x5C, 0x5C, 0x5C},
+    // Blizzard Buffalo
+    {0, 0, 0, 0, 0, 0, 0, 0x5C},
+    // Gravity Beetle
+    {0, 0, 0, 0, 0x5C, 0, 0x5C, 0x5C},
+    // Toxic Seahorse
+    {0, 0, 0, 0, 0x5C, 0x5C, 0x5C, 0x5C},
+    // Volt Catfish
+    {0x5C, 0x5C, 0, 0, 0x5C, 0x5C, 0x5C, 0x5C},
+    // Crush Clawfish
+    {0x5C, 0x5C, 0x5C, 0, 0x5C, 0x5C, 0x5C, 0x5C},
+    // Tunnel Rhino
+    {0, 0, 0, 0, 0, 0, 0, 0},
+    // Neon Tiger
+    {0, 0, 0, 0, 0, 0, 0x5C, 0x5C}
+};
 
 static void SetWeapons(int set)
 {
@@ -172,6 +191,25 @@ void SetupUpgrades()
             bossFlags = 0x30;
         default:
             break;
+        }
+    }
+    else //100%
+    {
+        if (stageId < stage_doppler_1)
+        {
+            if (practice.revist)
+            {
+                SetWeapons(-1);
+            }
+            else
+            {
+                SetWeapons(stageId + 8);
+            }
+        }
+        else
+        {
+            SetWeapons(-1);
+            
         }
     }
 }
