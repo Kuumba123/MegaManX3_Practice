@@ -6,25 +6,24 @@ extern uint8_t weaponAmmo[9 * 2];
 static uint8_t aquiredWeapons[][8] = {
     /*Acid | P.Bomb | T.Thunder | S.Blade | Ray.S | B.Hole | Frost.S | Tornado.F*/
 
-    //Intro
-    {0,0,0,0,0,0,0,0},
-    //Blast Hornet
-    {0x5C,0,0x5C,0x5C,0x5C,0x5C,0x5C,0x5C},
-    //Blizzard Buffalo
-    {0,0,0,0,0,0,0,0},
-    //Gravity Beetle
-    {0,0,0x5C,0x5C,0x5C,0,0x5C,0x5C},
-    //Toxic Seahorse
-    {0,0,0x5C,0x5C,0x5C,0x5C,0x5C,0x5C},
-    //Volt Catfish
-    {0,0,0,0,0x5C,0,0x5C,0},
-    //Crush Clawfish
-    {0,0,0x5C,0,0x5C,0,0x5C,0},
-    //Tunnel Rhino
-    {0,0,0x5C,0x5C,0x5C,0,0x5C,0},
-    //Neon Tiger
-    {0,0,0,0,0,0,0x5C,0}
-};
+    // Intro
+    {0, 0, 0, 0, 0, 0, 0, 0},
+    // Blast Hornet
+    {0x5C, 0, 0x5C, 0x5C, 0x5C, 0x5C, 0x5C, 0x5C},
+    // Blizzard Buffalo
+    {0, 0, 0, 0, 0, 0, 0, 0},
+    // Gravity Beetle
+    {0, 0, 0x5C, 0x5C, 0x5C, 0, 0x5C, 0x5C},
+    // Toxic Seahorse
+    {0, 0, 0x5C, 0x5C, 0x5C, 0x5C, 0x5C, 0x5C},
+    // Volt Catfish
+    {0, 0, 0, 0, 0x5C, 0, 0x5C, 0},
+    // Crush Clawfish
+    {0, 0, 0x5C, 0, 0x5C, 0, 0x5C, 0},
+    // Tunnel Rhino
+    {0, 0, 0x5C, 0x5C, 0x5C, 0, 0x5C, 0},
+    // Neon Tiger
+    {0, 0, 0, 0, 0, 0, 0x5C, 0}};
 
 static void SetWeapons(int set)
 {
@@ -33,20 +32,22 @@ static void SetWeapons(int set)
         if (set == -1)
         {
             weaponAmmo[i * 2] = 0x5C;
-        }else{
+        }
+        else
+        {
             weaponAmmo[i * 2] = aquiredWeapons[set][i];
         }
     }
 }
 
-#define upgrades *(char*)0x800d80f5
-#define maxHP *(char*)0x800d8115
-#define rideArmors *(char*)0x800d811a
-#define hearts *(char*)0x800d8117
-#define armorParts *(char*)0x800d8114
-#define bossFlags *(char*)0x800d811b
-#define lives *(char*)0x800d80f7
-#define zeroUnavailable *(char*)0x800d8124 // Whether Zero is available in the start menu
+#define upgrades *(char *)0x800d80f5
+#define maxHP *(char *)0x800d8115
+#define rideArmors *(char *)0x800d811a
+#define hearts *(char *)0x800d8117
+#define armorParts *(char *)0x800d8114
+#define bossFlags *(char *)0x800d811b
+#define lives *(char *)0x800d80f7
+#define zeroUnavailable *(char *)0x800d8124 // Whether Zero is available in the start menu
 
 // armor
 #define armor_boots 8
@@ -71,10 +72,6 @@ static void SetWeapons(int set)
 #define stage_doppler_3 0xC
 #define stage_doppler_4 0xD
 
-// routes
-#define route_all_stages 0
-#define route_low 1
-
 void SetupUpgrades()
 {
     SetWeapons(0);
@@ -87,11 +84,11 @@ void SetupUpgrades()
     bossFlags = 0;
     lives = 2;
     zeroUnavailable = 0;
-    if (practice.route == route_low || stageId == stage_intro)
+    if (practice.route == LOW_PERCENT || stageId == stage_intro)
     {
         return;
     }
-    else if(practice.route == route_all_stages)
+    else if (practice.route == ALL_STAGES)
     {
         if (stageId == stage_catfish && !practice.revist)
         {
@@ -112,7 +109,7 @@ void SetupUpgrades()
         case stage_doppler_2:
             SetWeapons(stage_catfish);
             armorParts = armor_boots;
-            upgrades = upgrade_vile_dead; //Vile defeated in Volt Catfish level
+            upgrades = upgrade_vile_dead; // Vile defeated in Volt Catfish level
             return;
         case stage_doppler_3:
         case stage_doppler_4:
@@ -121,7 +118,7 @@ void SetupUpgrades()
             upgrades = upgrade_saber | upgrade_vile_dead | upgrade_zero_dead;
             zeroUnavailable = 1;
             return;
-        
+
         default:
             if (stageId != stage_buffalo)
             {
@@ -138,10 +135,39 @@ void SetupUpgrades()
         if (stageId < stage_doppler_1)
         {
             SetWeapons(stageId);
-        }else{
+        }
+        else
+        {
             SetWeapons(-1);
         }
-        
+    }
+    else if (practice.route == ANY_PERCENT)
+    {
+        if (stageId != stage_buffalo)
+        {
+            armorParts = armor_boots;
+        }
+        switch (stageId)
+        {
+        case stage_crawfish:
+            lives = 0;
+            weaponAmmo[6] = 0x5C;
+            break;
+        case stage_doppler_1:
+        case stage_doppler_2:
+            upgrades = upgrade_vile_dead; // Vile defeated in Volt Catfish level
+            weaponAmmo[3] = 0x5C;
+            weaponAmmo[6] = 0x5C;
+        case stage_doppler_3:
+        case stage_doppler_4:
+            weaponAmmo[3] = 0x5C;
+            weaponAmmo[6] = 0x5C;
+            upgrades = upgrade_saber | upgrade_vile_dead | upgrade_zero_dead;
+            zeroUnavailable = 1;
+            bossFlags = 0x30;
+        default:
+            break;
+        }
     }
 }
 
@@ -181,5 +207,3 @@ void ResetSaveState()
 #undef stage_doppler_2
 #undef stage_doppler_3
 #undef stage_doppler_4
-#undef route_all_stages
-#undef route_low
