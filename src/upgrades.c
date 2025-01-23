@@ -44,6 +44,8 @@ static uint8_t aquiredWeapons[][8] = {
     {0, 0, 0, 0, 0, 0, 0x5C, 0x5C}
 };
 
+void ApplyHearts();
+
 static void SetWeapons(int set)
 {
     for (size_t i = 0; i < 8; i++)
@@ -58,7 +60,7 @@ static void SetWeapons(int set)
         }
     }
 }
-
+#define tankAmmo ((char *)0x800d80fa)
 #define upgrades *(char *)0x800d80f5
 #define maxHP *(char *)0x800d8115
 #define rideArmors *(char *)0x800d811a
@@ -69,6 +71,9 @@ static void SetWeapons(int set)
 #define zeroUnavailable *(char *)0x800d8124 // Whether Zero is available in the start menu
 
 // armor
+#define amror_helmet 1
+#define armor_arm 2
+#define armor_body 4
 #define armor_boots 8
 
 // upgrades
@@ -103,6 +108,10 @@ void SetupUpgrades()
     bossFlags = 0;
     lives = 2;
     zeroUnavailable = 0;
+    tankAmmo[0] = 0;
+    tankAmmo[1] = 0;
+    tankAmmo[2] = 0;
+    tankAmmo[3] = 0;
     if (practice.route == LOW_PERCENT || stageId == stage_intro)
     {
         return;
@@ -199,17 +208,88 @@ void SetupUpgrades()
         {
             if (practice.revist)
             {
+                rideArmors = 0xF;
+                tankAmmo[0] = 0x80;
+                tankAmmo[1] = 0x80;
+                tankAmmo[2] = 0x80;
+                upgrades = upgrade_vile_dead;
+                if (stageId == stage_rhino)
+                {
+                    hearts = 0xBF;
+                    armorParts = armor_arm + armor_body + armor_boots + 0xB0;
+                }
+                else
+                {
+                    hearts = 0xBB;
+                    armorParts = armor_arm + armor_body + armor_boots + 0xB0;
+                }
                 SetWeapons(-1);
             }
             else
             {
+                switch (stageId)
+                {
+                case stage_tiger:
+                    hearts = 2;
+                    armorParts = armor_boots;
+                    break;
+                case stage_beetle:
+                    hearts = 0x82;
+                    armorParts = armor_boots + armor_arm;
+                    break;
+                case stage_seahorse:
+                    hearts = 0x82;
+                    armorParts = armor_boots + armor_arm;
+                    break;
+                case stage_hornet:
+                    hearts = 0x8A;
+                    armorParts = armor_boots + armor_arm;
+                    break;
+                case stage_catfish:
+                    hearts = 0x8B;
+                    armorParts = armor_boots + armor_arm;
+                    break;
+                case stage_crawfish:
+                    hearts = 0x9B;
+                    armorParts = armor_boots + armor_arm + armor_body;
+                    break;
+                default:
+                    break;
+                }
                 SetWeapons(stageId + 8);
+                ApplyHearts();
             }
         }
         else
         {
+            hearts = 0xFF;
+            rideArmors = 0xF;
+            armorParts = 0xFF;
+            tankAmmo[0] = 0x80;
+            tankAmmo[1] = 0x80;
+            tankAmmo[2] = 0x80;
+            tankAmmo[3] = 0x80;
+            bossFlags = 0x30;
+            switch (stageId)
+            {
+            case stage_doppler_1:
+                upgrades = upgrade_vile_dead; // Vile defeated in Volt Catfish level
+                break;
+            case stage_doppler_2:
+                upgrades = upgrade_vile_dead;
+                rideArmors = 0xFF;
+                break;
+            case stage_doppler_3:
+            case stage_doppler_4:
+                upgrades = upgrade_saber | upgrade_vile_dead | upgrade_zero_dead;
+                rideArmors = 0xFF;
+                zeroUnavailable = 1;
+                break;
+            default:
+                break;
+            }
+            ApplyHearts();
             SetWeapons(-1);
-            
         }
     }
 }
@@ -225,6 +305,7 @@ void ResetSaveState()
     *((char *)0x800d7ff4) = 0x1F; // brightness
 }
 
+#undef tankAmmo
 #undef upgrades
 #undef maxHP
 #undef rideArmors
@@ -233,6 +314,9 @@ void ResetSaveState()
 #undef bossFlags
 #undef lives
 #undef zeroUnavailable
+#undef amror_helmet
+#undef armor_arm
+#undef armor_body
 #undef armor_boots
 #undef upgrade_vile_dead
 #undef upgrade_zero_dead

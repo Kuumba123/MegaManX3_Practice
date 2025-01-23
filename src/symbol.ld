@@ -1,3 +1,5 @@
+ApplyHearts = 0x8003dcdc;
+
 GameMode1_2_1 = 0x8001f050; /*'READY'*/
 GameMode1_2_2 = 0x8001f2dc; /*Normal*/
 GameMode1_2_3 = 0x8001f538; /*MegaMan Dead*/
