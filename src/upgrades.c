@@ -232,34 +232,41 @@ void SetupUpgrades()
                 case stage_tiger:
                     hearts = 2;
                     armorParts = armor_boots + 0x10;
+                    tankAmmo[0] = 0x80;
                     break;
                 case stage_beetle:
                     hearts = 0x82;
                     armorParts = armor_boots + armor_arm  + 0x10 + 0x80;
                     tankAmmo[0] = 0x80;
+                    tankAmmo[1] = 0x80;
                     break;
                 case stage_seahorse:
                     hearts = 0x82;
                     armorParts = armor_boots + armor_arm  + 0x10 + 0x80;
                     tankAmmo[0] = 0x80;
+                    tankAmmo[1] = 0x80;
                     rideArmors = 8;
                     break;
                 case stage_hornet:
                     hearts = 0x8A;
                     armorParts = armor_boots + armor_arm  + 0x10 + 0x80;
                     tankAmmo[0] = 0x80;
+                    tankAmmo[1] = 0x80;
                     rideArmors = 8 +  2;
                     break;
                 case stage_catfish:
                     hearts = 0x8B;
                     armorParts = armor_boots + armor_arm  + 0x10 + 0x80;
                     tankAmmo[0] = 0x80;
+                    tankAmmo[1] = 0x80;
                     rideArmors = 8 +  2 + 1;
                     break;
                 case stage_crawfish:
                     hearts = 0x9B;
                     armorParts = armor_boots + armor_arm + armor_body  + 0x10 + 0x80 + 0x20;
                     tankAmmo[0] = 0x80;
+                    tankAmmo[1] = 0x80;
+                    tankAmmo[2] = 0x80;
                     rideArmors = 8 +  2 + 1;
                     break;
                 default:
