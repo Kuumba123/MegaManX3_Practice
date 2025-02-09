@@ -179,25 +179,27 @@ void SetupUpgrades()
         {
         case stage_crawfish:
             lives = 0;
-            weaponAmmo[6] = 0x5C;
+            weaponAmmo[6 * 2] = 0x5C;
             break;
         case stage_catfish:
             lives = 0;
-            weaponAmmo[3] = 0x5C;
-            weaponAmmo[6] = 0x5C;
+            weaponAmmo[3 * 2] = 0x5C;
+            weaponAmmo[6 * 2] = 0x5C;
             break;
         case stage_doppler_1:
         case stage_doppler_2:
             upgrades = upgrade_vile_dead; // Vile defeated in Volt Catfish level
-            weaponAmmo[3] = 0x5C;
-            weaponAmmo[6] = 0x5C;
+            weaponAmmo[3 * 2] = 0x5C;
+            weaponAmmo[6 * 2] = 0x5C;
+            break;
         case stage_doppler_3:
         case stage_doppler_4:
-            weaponAmmo[3] = 0x5C;
-            weaponAmmo[6] = 0x5C;
+            weaponAmmo[3 * 2] = 0x5C;
+            weaponAmmo[6 * 2] = 0x5C;
             upgrades = upgrade_saber | upgrade_vile_dead | upgrade_zero_dead;
             zeroUnavailable = 1;
             bossFlags = 0x30;
+            break;
         default:
             break;
         }
